@@ -1,6 +1,7 @@
 package com.example.springconcepts;
 
 import com.example.springconcepts.component.DemoBean;
+import com.example.springconcepts.component.EmployeeBean;
 import com.example.springconcepts.controller.HelloRestController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,12 @@ public class SpringconceptsApplication {
 		DemoBean demoBean = context.getBean(DemoBean.class);
 		logger.debug("Demo Bean = "+demoBean.toString());
 		System.out.println(context.getBean(HelloRestController.class));
+
+		//dependency ingection
+		EmployeeBean employeeBean = context.getBean(EmployeeBean.class);
+		employeeBean.setEid(104);
+		employeeBean.setEname("Spring FrameWork Guru");
+		employeeBean.showEmployeeDetails();
 	}
 
 }
